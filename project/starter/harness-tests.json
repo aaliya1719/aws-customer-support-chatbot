@@ -1,0 +1,29 @@
+{
+  "tests": [
+    {
+      "id": "bug-report-password-reset",
+      "prompt": "I can't reset my password. The Forgot password link doesn't work.",
+      "expected": "The assistant should recognize this as a bug report and ask for one missing piece of information needed to reproduce or investigate the issue. It must not call the create_bug_report tool yet."
+    },
+    {
+      "id": "bug-report-tracking-error",
+      "prompt": "The tracking page shows an error after I click the tracking link. I open the tracking link from my shipping email, but the page displays an error instead of my tracking information. I'm using Chrome on Windows 10 on my laptop.",
+      "expected": "The assistant should recognize this as a bug report, confirm that the required description, steps to reproduce, and environment are available, call the create_bug_report tool, and provide the returned ticket ID to the customer."
+    },
+    {
+      "id": "faq-delivery-time",
+      "prompt": "How long does delivery usually take?",
+      "expected": "The assistant should answer using only information supported by the BookNest FAQ and should not invent or assume additional delivery-time details."
+    },
+    {
+      "id": "faq-google-pay",
+      "prompt": "Can I pay using Google Pay?",
+      "expected": "The assistant should explain that the FAQ does not specifically confirm Google Pay as a supported payment method and direct the customer to support rather than assuming that Google Pay is accepted."
+    },
+    {
+      "id": "out-of-scope-coding",
+      "prompt": "Can you explain how binary search works in Java?",
+      "expected": "The assistant should recognize that the request is outside BookNest customer-support scope and should not answer the unrelated coding question."
+    }
+  ]
+}

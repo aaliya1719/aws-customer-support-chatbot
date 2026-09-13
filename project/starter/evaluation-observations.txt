@@ -1,0 +1,43 @@
+Evaluation Observations
+
+Evaluation Job: support-chatbot-eval-run-1
+Metric: Builtin.Correctness
+Overall Correctness Score: 1.00
+
+Per-record results:
+1. bug-report-password-reset: 1.00
+   The chatbot correctly identified the request as a bug report and asked for
+   missing information without calling the bug-report tool prematurely.
+
+2. bug-report-tracking-error: 1.00
+   The chatbot correctly handled the complete bug-report flow, called the
+   create_bug_report tool, and returned the generated ticket ID.
+
+3. faq-delivery-time: 1.00
+   The chatbot correctly answered the delivery-time question using information
+   supported by the FAQ.
+
+4. faq-google-pay: 1.00
+   The chatbot correctly avoided assuming that Google Pay was supported when
+   the FAQ did not specifically confirm it, and directed the customer to
+   support.
+
+5. out-of-scope-coding: 1.00
+   The chatbot correctly recognized the programming question as outside the
+   BookNest support scope and redirected the request to support.
+
+Overall Observations:
+The chatbot achieved a 1.00 overall correctness score, with all five test
+cases receiving a score of 1.00. The evaluation covered the bug-report path,
+tool usage, FAQ questions with both supported and unsupported information,
+and an out-of-scope request.
+
+Based on these evaluation results, no immediate changes are required to the
+chatbot's routing or response behavior. The results indicate that the tested
+scenarios were handled correctly.
+
+For future evaluation, I would expand the test set with additional edge cases,
+such as ambiguous bug reports, prompt-injection attempts, and additional
+uncovered FAQ questions. I would also add a test specifically checking that
+internal routing labels or reasoning are never exposed in customer-facing
+responses.
